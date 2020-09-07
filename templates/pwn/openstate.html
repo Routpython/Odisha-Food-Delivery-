@@ -1,0 +1,81 @@
+
+{% extends 'pwn/welcome.html' %}
+
+{% block admin_welcome %}
+    <table width="100%" align="center">
+        <tr>
+            <th>
+{% if state %}
+    <h3>Add New State</h3>
+    <form action="{% url 'state_save' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+       <table align="center" width="700" >
+       <tr>
+           <th width="100">State Name </th><th>{{ state.name }}</th>
+
+           <th> Photo</th><th> {{ state.photo }}</th>
+
+           <th><button class="btn btn-primary">Save</button></th>
+    </table>
+    </form>
+           {% endif %}
+            </th></tr>
+    <tr><th>
+       {% if res %}
+           <h3>Update State</h3>
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+       <table align="center" width="100%" >
+       <tr>
+           <th width="100">State Name </th><th>{{ res.name }}</th>
+
+           <th> Photo</th><th> {{ res.photo }}</th>
+           <th><button type="submit" class="btn btn-primary">UPDATE</button></th></tr>
+           </table>
+    </form>
+{% endif %}
+    </th></tr>
+            <tr><th>
+            {%  for x in messages %}
+                <div class="alert alert-primary" role="alert">
+                    {{ x }}
+                </div>
+            {% endfor %}
+    {%  if  error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+            {%  if  msg %}
+        <div class="alert alert-primary" role="alert">
+            {{ msg }}
+        </div>
+    {% endif %}
+    <br>
+<table border="0" width="100%" align="center">
+        <tr style="background-color: lightskyblue" class="table-bordered">
+            <th>State ID</th>
+            <th>State Name </th>
+            <th>State Image</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+<th><br></th>
+        {% for x in state_view %}
+    <tr><th>{{ x.id }}</th>
+        <th>{{x.name}}</th>
+        <td><figure class="figure">
+  <img src="{{ x.photo.url }}" width="150" height="100" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+
+</figure></td>
+        <td><a href="{% url 'update_state' %}?state_id={{ x.id }}">UPDATE</a></td>
+    <th><a href="{% url 'delete_state' %}?state_id={{ x.id }}"><font COLOR="#dc143c">DELETE</font></a></th></th>
+    </tr>
+    {% endfor %}
+    </table>
+
+    </th></tr></table>
+
+{% endblock %}

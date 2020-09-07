@@ -1,0 +1,79 @@
+{% extends 'pwn/welcome.html' %}
+
+{% block admin_welcome %}
+    <table width="100%">
+        <tr>
+            <th>
+{#    For save city #}
+{% if city %}
+
+    <form action="{% url 'city_save' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table align="center" width="100%" >
+        <h3>Add New City</h3><br>
+       <tr>
+           <th width="100">City Name </th><th>{{ city.name }}</th>
+           <th style="padding-left: 40px"> Photo</th><th> {{ city.photo }}</th>
+           <th>State</th><th>{{ city.city_state }}</th>
+           <th><button class="btn btn-primary">Save</button></th></tr>
+    </table>
+    </form>
+     {% endif %}
+            </th></tr>
+    <tr><th>
+
+        {% if up_city %}
+           <h3>Update City</h3>
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+       <table align="center" width="100%" >
+       <tr>
+           <th width="100">City Name </th><th>{{up_city.name }}</th>
+           <th style="padding-left: 40px"> Photo</th><th> {{ up_city.photo }}</th>
+           <th>State</th><th>{{ up_city.city_state }}</th>
+           <th><button type="submit" class="btn btn-primary">UPDATE</button></th></tr>
+           </table>
+    </form>
+{% endif %}
+    </th></tr>
+    <tr><th>
+{#    messages   #}
+{%  for x in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ x }}
+        </div>
+    {% endfor %}
+            {%  if  msg %}
+        <div class="alert alert-primary" role="alert">
+            {{ msg }}
+        </div>
+    {% endif %}
+    <br><br>
+<table border="0" width="100%" align="center" style="padding-top: 40px">
+        <tr style="background-color: lightskyblue" class="table-bordered">
+            <th>City ID</th>
+            <th>City Name </th>
+            <th>State Name</th>
+            <th>City Image</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+<th><br></th>
+        {% for x in city_view %}
+    <tr><td>{{ x.id }}</td>
+        <td>{{x.name}}</td>
+        <td>{{ x.city_state }}</td>
+        <td><figure class="figure">
+  <img src="{{ x.photo.url }}" width="150" height="100" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+
+</figure></td>
+
+        <td><a href="{% url 'update_city' %}?city_id={{ x.id }}">UPDATE</a></td>
+    <th><a href="{% url 'delete_city' %}?city_id={{ x.id }}"><font COLOR="#dc143c">DELETE</font></a></th></th>
+    </tr>
+    {% endfor %}
+    </table>
+    </th></tr></table>
+{% endblock %}

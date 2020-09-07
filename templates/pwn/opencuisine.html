@@ -1,0 +1,75 @@
+{% extends 'pwn/welcome.html' %}
+
+{% block admin_welcome %}
+
+
+<table width="100%">
+        <tr>
+            <th>
+{#    For save cuisine #}
+{% if cuisine%}
+
+    <form action="{% url 'cuisine_save' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table align="center" width="100%" >
+        <h3>Add Cuisine Type</h3><br>
+       <tr>
+           <th width="100">Cuisine Type </th><th>{{ cuisine.type }}</th>
+           <th style="padding-left: 40px"> Photo</th><th> {{ cuisine.photo }}</th>
+           
+           <th><button class="btn btn-primary">Save</button></th></tr>
+    </table>
+    </form>
+     {% endif %}
+            {% if up_cui %}
+           <h3>Update Cuisine</h3>
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+       <table align="center" width="100%" >
+       <tr>
+           <th width="100">Cuisine Type </th><th>{{ up_cui.type }}</th>
+           <th style="padding-left: 40px"> Photo</th><th> {{ up_cui.photo }}</th>
+
+           <th><button type="submit" class="btn btn-primary">UPDATE</button></th></tr>
+           </table>
+    </form>
+{% endif %}
+            </th></tr>
+    <tr><th>
+{%  for x in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ x }}
+        </div>
+    {% endfor %}
+            {%  if  msg %}
+        <div class="alert alert-primary" role="alert">
+            {{ msg }}
+        </div>
+    {% endif %}
+    <br><br>
+<table border="0" width="100%" align="center" style="padding-top: 40px">
+        <tr style="background-color: lightskyblue" class="table-danger">
+            <th>Cuisine ID</th>
+            <th>Cuisine Type </th>
+            <th>Cuisine Image</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+<td><br></td>
+        {% for x in cui_view %}
+    <tr><td>{{ x.id }}</td>
+        <td>{{x.type}}</td>
+        <td><figure class="figure">
+  <img src="{{ x.photo.url }}" width="150" height="100" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+
+</figure></td>
+
+        <td><a href="{% url 'update_cui' %}?cui_id={{ x.id }}">UPDATE</a></td>
+    <th><a href="{% url 'delete_cui' %}?cui_id={{ x.id }}"><font COLOR="#dc143c">DELETE</font></a></th></th>
+    </tr>
+    {% endfor %}
+    </table>
+    </th></tr></table>
+{% endblock %}

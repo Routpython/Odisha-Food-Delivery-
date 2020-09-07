@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bc718f56-5a42-45de-9780-2c6e7d71d3e0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="ProjectId" id="1h3IT5md6iPyMQAogvJ9LozZZ7q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyGITHUB/Food-Delivery" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Restapi Naveen\Food_Delivery_DupliCate\web_admin" />
+      <recent name="D:\Restapi Naveen\Food_Delivery_DupliCate\templates" />
+      <recent name="D:\Restapi Naveen\Food_Delivery_DupliCate\vendor" />
+      <recent name="D:\Restapi Naveen\Food_Delivery_DupliCate\customer" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Food_Delivery_DupliCate" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Food_Delivery_DupliCate" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Food_Delivery_DupliCate.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc718f56-5a42-45de-9780-2c6e7d71d3e0" name="Default Changelist" comment="" />
+      <created>1599233353234</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599233353234</updated>
+      <workItem from="1599233356821" duration="464000" />
+      <workItem from="1599233903955" duration="1788000" />
+      <workItem from="1599235710496" duration="674000" />
+      <workItem from="1599272483370" duration="1786000" />
+      <workItem from="1599275597359" duration="1671000" />
+      <workItem from="1599277608527" duration="1525000" />
+      <workItem from="1599280419662" duration="1892000" />
+      <workItem from="1599282345118" duration="1799000" />
+      <workItem from="1599284167958" duration="1791000" />
+      <workItem from="1599285982908" duration="138000" />
+      <workItem from="1599287952561" duration="1793000" />
+      <workItem from="1599289763960" duration="1791000" />
+      <workItem from="1599291576696" duration="1797000" />
+      <workItem from="1599293390786" duration="1609000" />
+      <workItem from="1599295839722" duration="1790000" />
+      <workItem from="1599297647288" duration="1936000" />
+      <workItem from="1599299663900" duration="1791000" />
+      <workItem from="1599301643699" duration="1793000" />
+      <workItem from="1599303452326" duration="1241000" />
+      <workItem from="1599314153285" duration="641000" />
+      <workItem from="1599356722384" duration="1144000" />
+      <workItem from="1599358525061" duration="1555000" />
+      <workItem from="1599360335628" duration="3000" />
+      <workItem from="1599362451520" duration="111000" />
+      <workItem from="1599443583362" duration="741000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="99" key="FileChooserDialogImpl" timestamp="1599443720510">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1599443720510" />
+    <state width="1237" height="3" key="GridCell.Tab.0.bottom" timestamp="1599359474754">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="3" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1599359474754" />
+    <state width="1237" height="3" key="GridCell.Tab.0.center" timestamp="1599359474753">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="3" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1599359474753" />
+    <state width="1237" height="3" key="GridCell.Tab.0.left" timestamp="1599359474753">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="3" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1599359474753" />
+    <state width="1237" height="3" key="GridCell.Tab.0.right" timestamp="1599359474753">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="3" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1599359474753" />
+    <state x="340" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1599358525017">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="340" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1599358525017" />
+  </component>
+</project>
