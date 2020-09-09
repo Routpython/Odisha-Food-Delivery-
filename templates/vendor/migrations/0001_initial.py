@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('pwn', '0001_initial'),
+        ('web_admin', '0001_initial'),
     ]
 
     operations = [
@@ -25,8 +25,8 @@ class Migration(migrations.Migration):
                 ('password', models.CharField(max_length=20)),
                 ('OTP', models.IntegerField()),
                 ('status', models.CharField(max_length=30)),
-                ('cuisine_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pwn.CuisineModel')),
-                ('vendor_city', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pwn.CityModel')),
+                ('cuisine_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='web_admin.CuisineModel')),
+                ('vendor_city', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='web_admin.CityModel')),
             ],
         ),
         migrations.CreateModel(

@@ -1,5 +1,5 @@
 from django.db import models
-from pwn.models import CuisineModel,CityModel
+from web_admin.models import CuisineModel,CityModel
 
 class VendorRegistrationModel(models.Model):
     id = models.AutoField(primary_key=True)

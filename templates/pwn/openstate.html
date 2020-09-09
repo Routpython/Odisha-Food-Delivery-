@@ -1,6 +1,6 @@
 
 {% extends 'pwn/welcome.html' %}
-
+{% load static %}
 {% block admin_welcome %}
     <table width="100%" align="center">
         <tr>
@@ -70,8 +70,8 @@
   <img src="{{ x.photo.url }}" width="150" height="100" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
 
 </figure></td>
-        <td><a href="{% url 'update_state' %}?state_id={{ x.id }}">UPDATE</a></td>
-    <th><a href="{% url 'delete_state' %}?state_id={{ x.id }}"><font COLOR="#dc143c">DELETE</font></a></th></th>
+        <td><a href="{% url 'update_state' %}?state_id={{ x.id }}"><img src="{% static 'images/loop.png' %}"></a></td>
+    <th onclick="return confirm('Are you sure to Delete')"><a href="{% url 'delete_state' %}?state_id={{ x.id }}"><font COLOR="#dc143c"><img src="{% static 'images/trash (2).png' %} " width="35" height="35"></font></a></th></th>
     </tr>
     {% endfor %}
     </table>

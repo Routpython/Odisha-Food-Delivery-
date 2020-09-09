@@ -23,7 +23,7 @@ from Food_Delivery_DupliCate import settings
 
 urlpatterns = [
 
- path('admin/',include('web_admin.urls')),
+ path('admin/', include('web_admin.urls')),
     path('vendor/',include('vendor.urls')),
     path('customer/',include('customer.urls')),
 ]

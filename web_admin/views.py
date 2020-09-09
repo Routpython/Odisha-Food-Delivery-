@@ -47,16 +47,19 @@ def openVendor(request):
 def openReporsts(request):
     return render(request,"pwn/openreports.html")
 
-
+# State Section
 def state_save(request):
     try:
         if request.method == 'POST':
             res=StateForms(request.POST,request.FILES)
             if res.is_valid():
                 res.save()
-                return  render(request,'pwn/openstate.html',{"msg":"State Saved Successfully",'state':StateForms(),'state_view':StateModel.objects.all()})
+                messages.success(request,'Saved Successfully')
+                return  redirect('state')
             else:
-                return render(request, 'pwn/openstate.html',{"error":"State Already Exists",'state':StateForms(),'state_view':StateModel.objects.all()})
+                messages.error(request,res.errors)
+                return redirect('state')
+  #              return render(request, 'pwn/openstate.html',{"error":"State Already Exists",'state':StateForms(),'state_view':StateModel.objects.all()})
     except StateModel.DoesNotExist:
         return render(request, 'pwn/openstate.html',
                       {"error": "State Does Not Exist", 'state': StateForms(), 'state_view': StateModel.objects.all()})
@@ -65,14 +68,17 @@ def update(request):
     try:
         id = request.GET.get('state_id')
         state_update = StateModel.objects.get(id=id)
+        sf=StateForms(instance=state_update)
         state_forms = StateForms(request.POST,request.FILES,instance=state_update)
         if request.method == 'POST':
             if state_forms.is_valid():
                 state_forms.save()
-                return render(request, 'pwn/openstate.html',
-                              {"msg": "State Updated",'state':StateForms(),'state_view':StateModel.objects.all()})
-
-        return  render(request,'pwn/openstate.html',{'res':state_forms,'state_view':StateModel.objects.all()})
+                messages.success(request,'Updated Successfully')
+                return redirect('state')
+            else:
+                messages.success(request,sf.errors)
+                return redirect('state')
+        return  render(request,'pwn/openstate.html',{'res':sf,'state_view':StateModel.objects.all()})
 
     except StateModel.DoesNotExist:
             return render(request, 'pwn/openstate.html', {'res': StateForms(),"error":"Enter Correct State",'state_view':StateModel.objects.all()})
@@ -89,7 +95,7 @@ def delete_state(request):
                      {'state': StateForms(), "error": "Enter Correct State", 'state_view': StateModel.objects.all()})
 
 
-# Add City
+#City Section
 
 
 def city_save(request):
@@ -110,12 +116,14 @@ def update_city(request):
     try:
         id = request.GET.get('city_id')
         city=CityModel.objects.get(id=id)
+        cf=CityForms(instance=city)
         city_forms=CityForms(request.POST,request.FILES,instance=city)
         if city_forms.is_valid():
             city_forms.save()
-            return render(request,'pwn/opencity.html',{"msg":"Updated Successfully",'city':CityForms(),'city_view':CityModel.objects.all()})
+            messages.success(request,'Updated Successfully')
+            return redirect('city')
 
-        return render(request, 'pwn/opencity.html',{ 'up_city': CityForms() ,'city_view': CityModel.objects.all()})
+        return render(request, 'pwn/opencity.html',{ 'up_city':cf ,'city_view': CityModel.objects.all()})
     except CityModel.DoesNotExist:
         return render(request, 'pwn/opencity.html',
                       {"error": "City Doesnot Exists", 'city': CityForms(), 'city_view': CityModel.objects.all()})
@@ -123,14 +131,16 @@ def update_city(request):
 
 def delete_city(request):
     try:
-        if request.method == 'GET':
-            id = request.GET.get('city_id')
-            CityModel.objects.get(id=id).delete()
-            return render(request, 'pwn/opencity.html', {'city':CityForms(), "msg": "Deleted Successfully",
-                                                          'city_view': CityModel.objects.all()})
-    except CityModel.DoesNotExist:
+        id = request.GET.get('city_id')
+        qs = CityModel.objects.get(id=id)
+        qs.delete()
         return render(request, 'pwn/opencity.html',
-                      {'city': CityForms(), "error": "Enter Correct State", 'city_view': CityModel.objects.all()})
+                  {'city': CityForms(), 'city_view': CityModel.objects.all(),
+                   "msg": "Deleted Successfully", })
+    except CityModel.DoesNotExist:
+        return render(request, 'pwn/opencity.html',{'city': CityForms(), 'city_view': CityModel.objects.all(),
+                       "msg": "Does Not Exist", })
+
 
 #   Cusinie Part
 
@@ -140,10 +150,14 @@ def cuisine_save(request):
             cui=CuisineForms(request.POST,request.FILES)
             if cui.is_valid():
                 cui.save()
-                return render(request, "pwn/opencuisine.html", {"msg":"Cuisine Saved Successfully",'cuisine': CuisineForms(),'cui_view':CuisineModel.objects.all()})
+                messages.success(request, 'Cuisine Saved Successfully ')
+                return redirect('cuisine')
+
             else:
-                messages.success(request,'Cuisine Already Exists')
-                return  redirect('cuisine')
+                return render(request, "pwn/opencuisine.html",
+                              {"msg": "Cuisine Already Exists", 'cuisine': CuisineForms(),
+                               'cui_view': CuisineModel.objects.all()})
+
     except CityModel.DoesNotExist:
         return render(request,"pwn/opencuisine.html",{'cuisine': CuisineForms(),"error": "Enter Correct Cuisine",'cui_view':CuisineModel.objects.all()})
 
@@ -152,12 +166,13 @@ def update_cui(request):
     try:
         id = request.GET.get('cui_id')
         cui=CuisineModel.objects.get(id=id)
+        cui_fr=CuisineForms(instance=cui)
         cui_forms=CuisineForms(request.POST,request.FILES,instance=cui)
         if cui_forms.is_valid():
             cui_forms.save()
-            return render(request,'pwn/opencuisine.html',{"msg":"Updated Successfully",'up_cui': CuisineForms(),'cui_view':CuisineModel.objects.all()})
-
-        return render(request, 'pwn/opencuisine.html',{ 'up_cui': CuisineForms(),'cui_view':CuisineModel.objects.all()})
+            messages.success(request,'Updated Successfully')
+            return redirect('cuisine')
+        return render(request, 'pwn/opencuisine.html',{ 'up_cui':cui_fr,'cui_view':CuisineModel.objects.all()})
     except CityModel.DoesNotExist:
         return render(request, 'pwn/opencuisine.html',
                       {"error": "City Doesnot Exists", 'cuisine': CuisineForms(),'cui_view':CuisineModel.objects.all()})
@@ -165,11 +180,13 @@ def update_cui(request):
 
 def delete_cui(request):
     try:
-        if request.method == 'GET':
-            id = request.GET.get('cui_id')
-            CuisineModel.objects.get(id=id).delete()
-            return render(request, 'pwn/opencuisine.html', {'cuisine': CuisineForms(),'cui_view':CuisineModel.objects.all(),"msg": "Deleted Successfully",})
-    except CuisineModel.DoesNotExist:
+        id = request.GET.get('cui_id')
+        qs=CuisineModel.objects.get(id=id)
+        qs.delete()
         return render(request, 'pwn/opencuisine.html',
-                      {'cuisine': CuisineForms(),'cui_view':CuisineModel.objects.all(),"error": "Enter Correct State"})
+                      {'cuisine': CuisineForms(), 'cui_view': CuisineModel.objects.all(),
+                       "msg": "Deleted Successfully", })
 
+    except CuisineModel.DoesNotExist:
+        return render(request, 'pwn/opencuisine.html',{'cuisine': CuisineForms(), 'cui_view': CuisineModel.objects.all(),
+                       "msg": "Does Not Exist", })
